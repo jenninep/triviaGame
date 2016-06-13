@@ -1,6 +1,6 @@
 html {
 	height: 100%;
-	background: url('background.jpg') no-repeat center center;
+	background: url('background1.jpg') no-repeat center center;
 	background-size: cover;
 }
 body{
@@ -13,17 +13,23 @@ body{
 }
 
 .tv{
-	max-width: 110%;
+	max-width: 115%;
+	margin-bottom: 100px;
 }
 
-h1{
+header, #question{
 	font-family: 'Chicle', cursive;
 	margin-top: 30px;
 	color: #cb279b;
-	letter-spacing: .1px;
+	letter-spacing: 1px;
 	border-bottom-style: dotted;
 	border-width: 2px;
+	text-shadow: 2px 2px white;
+	font-size: 35px;
+}
 
+.triviaBox{
+	margin-top: 80px;
 }
 
 p{
@@ -35,8 +41,8 @@ p{
 
 .intro{
 	margin-top: 60px;
-	border-style: double;
-    border-width: 7px;
+	/*border-style: double;*/
+    /*border-width: 7px;*/
 
 
 }
@@ -47,7 +53,9 @@ p{
 	padding: 10px;
 	color: #cb279b;
 	font-weight: bold;
-	font-size: 15px;
-	font-family: helvetica;
+	font-size: 17px;
+	font-family: 'Chicle', cursive;
 	text-decoration: underline;
+	letter-spacing: 1px;
+	text-shadow: 2px 2px white;
 }
