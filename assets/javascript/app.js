@@ -7,6 +7,8 @@ var wrong = 0;
 var countDown = 30; 
 var questionId = 0;
 var intervalID;
+var questionCounter = 0;
+var selections = [];
 
 function showQuestion(questionId) {
         countDown =30;
@@ -17,11 +19,11 @@ function showQuestion(questionId) {
 function timer(){     		
 	countDown -- ; 
 console.log(countDown);
-	$('#countdown').html(countDown);
+	$('#display').html(countDown);
 if(countDown === 0){
     clearInterval(intervalID);
     questionId++
-    showQuestion(questionId);
+    triviaQuestions(questions[questionCounter]);
 }
 }
 
@@ -30,32 +32,29 @@ $('.triviaBox').hide();
   $('.startButton').click(function(){
   $('.intro').hide(); 
   $('.triviaBox').show();
-  // $('.display').html(questions.timer);
-  console.log("Test")
-  triviaQuestions();
-  triviaAnswers();
+  $('.display').html(questions.timer);
+  triviaQuestions(questions[questionCounter]);
+  
 
-  });
+});
  
-
-
 
 var questions = [{
     question : 'Who played Danny Tanner in the TV series "Full House"?',
-    choices :[" Bob Saget","Dave Coulier","John Posey"],
+    choices :["Bob Saget","Dave Coulier","John Posey"],
     answer : "Bob Saget",
-    img : 'fullHouse.png'
+    img : '1fullHouse.png'
 }, {
 	question:  'Which "Wonder Years" favorite was only supposed to appear in the pilot?',
     choices :["Winnie Cooper","Paul Pfeiffer","Wayne Arnold"],
     answer : "Winnie Cooper",
-    img : 'wonderYears.png'
+    img : '2wonderYears.png'
 }, {
 
     question : 'Which 2016 presidential candidate made a cameo on "The Fresh Prince of Bel-Air"?',
     choices :["Hillary Clinton","Jeb Bush","Donald Trump"],
     answer : "Donald Trump",
-    img : 'fullHouse.png'
+    img : '1fullHouse.png'
 },  {
   
     question: 'Which 90\'s teen queen turned down the lead role on "Buffy the Vampire Slayer"?',
@@ -90,24 +89,57 @@ var questions = [{
 
 
 
+
 var triviaQuestions = function(obj) {	
-    $('#question').html(obj.question);
+    countDown =30;
+        clearInterval(intervalID);
+         intervalID = setInterval(timer,1000);
+    $('#question').text(obj.question);
+    console.log(obj.choices);
+  	$('.tv').replaceWith('<img class="tv" src="assets/images/' + obj.img + '">');
+
+    for (var i = 0; i < obj.choices.length; i++) {
+    	$('#choice' + (i + 1)).html(obj.choices[i]);
+  		
+  	};
+  	questionCounter ++;
+ 
+	$(".choices" ).click(function() {
+  		console.log('hey look here for this' + this.innerHTML);
+  		console.log('also look here for that' + obj.answer)
+
+  		if (this.innerHTML.trim() == (obj.answer.trim())){
+  				console.log('thing fired this is true');
+  				// $('#question').replaceWith(obj.question);
+  				console.log(obj.answer);
+  				console.log('you r teh winnerz');
+  				triviaQuestions(questions[questionCounter]);
+  		} else { triviaQuestions(questions[questionCounter]);
+  				wrong++
+
+  		}			
+	})
+
 }
 
+ // function displayNext() {
+ //    triviaBox.fadeOut(function() {
+ //      $('#question').remove();
+      
+ //      if(questionCounter < questions.length){
+ //        var nextQuestion = createQuestionElement(questionCounter);
+ //        triviaBox.append(nextQuestion).fadeIn();
+ //        if (!(isNaN(selections[questionCounter]))) {
+ //          $('input[value='+ selections[questionCounter]+']').prop('checked', true);
+ //        }
+        
+  //if correct answer is clicked then move to the next question and add 1 to right
+  //add one to wrong
+  
 
 
 
-triviaQuestions(questions[0]);
-var output =  '';
-     
-for (var i = 0; i <= questions.choices.length -1; i++) {
-	for (key in questions.choices[i]) {
-		if (questions.choices[i].hasOwnProperty (key)) {
-			output += questions.choices[i][key]
-		}
-	}
-}
-var update = document.getElementbyID('choice1');
-update.innerHTML = output;
 
 })
+
+

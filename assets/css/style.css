@@ -20,16 +20,17 @@ body{
 header, #question{
 	font-family: 'Chicle', cursive;
 	margin-top: 30px;
-	color: #cb279b;
+	color: #af0581;
 	letter-spacing: 1px;
 	border-bottom-style: dotted;
 	border-width: 2px;
 	text-shadow: 2px 2px white;
 	font-size: 35px;
+	margin-bottom: 20px;
 }
 
 .triviaBox{
-	margin-top: 80px;
+	margin-top: 50px;
 }
 
 p{
@@ -51,11 +52,32 @@ p{
 	margin-bottom: 30px;
 	background-color: #83d6fc;
 	padding: 10px;
-	color: #cb279b;
+	color: #af0581;
 	font-weight: bold;
-	font-size: 17px;
+	font-size: 20px;
 	font-family: 'Chicle', cursive;
 	text-decoration: underline;
 	letter-spacing: 1px;
 	text-shadow: 2px 2px white;
+}
+
+#choice1, #choice2, #choice3{
+	border: 2px solid;
+    border-radius: 25px;
+    margin: 9px;
+    padding: 5px;
+    padding-right: 30px;
+    padding-left: 30px;
+    background-color: #83d6fc;
+    color: #af0581;
+	font-weight: bold;
+	font-size: 20px;
+	font-family: 'Chicle', cursive;
+	text-decoration: underline;
+	letter-spacing: 1px;
+	text-shadow: 2px 2px white;
+}
+
+.choice1{
+	margin-top: 30px;
 }
