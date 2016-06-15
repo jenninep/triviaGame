@@ -12,6 +12,10 @@ body{
 	margin-left: -20px;
 }
 
+#display{
+	font-size: 30px;
+	font-weight: bold;
+}
 .tv{
 	max-width: 115%;
 	margin-bottom: 100px;
