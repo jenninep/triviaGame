@@ -11,7 +11,7 @@ var questionCounter = 0;
 var selections = [];
 
 function showQuestion(questionId) {
-        countDown =30;
+        countDown = 30;
         clearInterval(intervalID);
          intervalID = setInterval(timer,1000);
      }
@@ -86,43 +86,54 @@ var questions = [{
 
 
 var triviaQuestions = function(obj) {	
-	console.log(obj);
-    countDown =30;
-        clearInterval(intervalID);
-         intervalID = setInterval(timer,1000);
-    $('#question').text(obj.question);
-    console.log(obj.choices);
-  	$('.tv').replaceWith('<img class="tv" src="assets/images/' + obj.img + '">');
-
-    for (var i = 0; i < obj.choices.length; i++) {
-    	$('#choice' + (i + 1)).html(obj.choices[i]).data("questionId", i);
-  		
-  	};
-  	// questionCounter ++;
- 
-	
+	// console.log(obj);
+  countDown =30;
+      clearInterval(intervalID);
+       intervalID = setInterval(timer,1000);
+       if(questionCounter <= 7){
+  $('#question').text(obj.question);
+  // console.log(obj.choices);
+	$('.tv').replaceWith('<img class="tv" src="assets/images/' + obj.img + '">');
+  for (var i = 0; i < obj.choices.length; i++) {
+  	$('#choice' + (i + 1)).html(obj.choices[i]).data("questionId", i);
+		
+	};
+}// questionCounter ++;
 }
 
 $(document).on("click", ".choices", function() {
 	var index = $(this).data("questionId");
 	var obj = questions[index];
-	console.log('hey look here for this' + this.innerHTML);
-	console.log('also look here for that' + obj.answer)
+	// console.log('hey look here for this' + this.innerHTML);
+	// console.log('also look here for that' + obj.answer)
 
-	if (this.innerHTML.trim() == (obj.answer.trim())){
-		console.log('thing fired this is true');
-		// $('#question').replaceWith(obj.question);
-		console.log(obj.answer);
-		console.log('you r teh winnerz');
+	if (this.innerHTML == (obj.answer)){
+		// console.log('thing fired this is true');
+		 // $('#question').replaceWith(obj.question);
+		// console.log(obj.answer);
 		questionCounter ++;
+    right++
+    console.log('right')
 		triviaQuestions(questions[questionCounter]);
-	} else { 
+	   
+  } else { 
 		questionCounter ++;
 		triviaQuestions(questions[questionCounter]);
 		wrong++
+    console.log('wrong')
+    
+	}
+  if(questionCounter === 8)	{
+    console.log('game over');
 
-	}			
+
+    $('.triviaBox').hide();
+    $('#endgameCount').html('<div>' + 'right: ' + right + '<br>' + '<div>' + 'wrong: ' + wrong);
+
+  }		
 })
+
+// if they have more than 5 right they win
 
 
 
