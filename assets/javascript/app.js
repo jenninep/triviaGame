@@ -73,7 +73,7 @@ var questions = [{
 },  {
     question:'What was the name of the bar/restaurant on Three\'s Company?',
     choices:["Bar None","Drunken Monkey","Regal Beagle"],
-    answer: "threesCompany",
+    answer: "Regal Beagle",
     img: 'threesCompany.png'
 },  {
     question:  'Where was Will "born and raised?',
@@ -92,7 +92,7 @@ var triviaQuestions = function(obj) {
        intervalID = setInterval(timer,1000);
        if(questionCounter <= 7){
   $('#question').text(obj.question);
-  // console.log(obj.choices);
+  console.log('obj.choices= ', obj.choices);
 	$('.tv').replaceWith('<img class="tv" src="assets/images/' + obj.img + '">');
   for (var i = 0; i < obj.choices.length; i++) {
   	$('#choice' + (i + 1)).html(obj.choices[i]).data("questionId", i);
@@ -104,30 +104,34 @@ var triviaQuestions = function(obj) {
 $(document).on("click", ".choices", function() {
 	var index = $(this).data("questionId");
 	var obj = questions[index];
-	// console.log('hey look here for this' + this.innerHTML);
-	// console.log('also look here for that' + obj.answer)
+  console.log('obj=', obj);
+	console.log('hey look here for this' + this.innerHTML);
+	console.log('also look here for that' + obj.answer)
 
 	if (this.innerHTML == (obj.answer)){
 		// console.log('thing fired this is true');
 		 // $('#question').replaceWith(obj.question);
-		// console.log(obj.answer);
+		console.log('object.answer=', obj.answer);
 		questionCounter ++;
     right++
-    console.log('right')
+    // console.log('right')
 		triviaQuestions(questions[questionCounter]);
 	   
   } else { 
 		questionCounter ++;
 		triviaQuestions(questions[questionCounter]);
 		wrong++
-    console.log('wrong')
+    // console.log('wrong')
     
 	}
   if(questionCounter === 8)	{
-    console.log('game over');
+    // console.log('game over');
 
 
     $('.triviaBox').hide();
+    // console.log('right =', right);
+    // console.log('wrong =', wrong);
+
     $('#endgameCount').html('<div>' + 'right: ' + right + '<br>' + '<div>' + 'wrong: ' + wrong);
 
   }		
