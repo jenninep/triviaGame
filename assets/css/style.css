@@ -13,7 +13,7 @@ body{
 }
 
 #display{
-	font-size: 21px;
+	font-size: 18px;
     font-weight: bold;
     background-color: white;
     display: inline-block;
@@ -26,6 +26,12 @@ body{
 .tv{
 	max-width: 115%;
 	font-family: 'Roboto', serif;
+	text-align: center;
+}
+
+#centerTV{
+	text-align: center;
+
 }
 
 header, #question{
@@ -114,7 +120,8 @@ p{
 		font-size: 26px;
 	}
 	.tv {
-    	max-width: 101%;
+    	max-width: 95%;
+    	text-align: center;
 	}
 	.intro{
 		margin-top: 0;
