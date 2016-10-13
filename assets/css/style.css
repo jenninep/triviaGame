@@ -81,14 +81,14 @@ p{
     background-color: #83d6fc;
     color: #af0581;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 25px;
     font-family: 'Chicle', cursive;
     text-decoration: underline;
     letter-spacing: 1px;
     text-shadow: 2px 2px white;
 }
 
-.choice1{
+#choice1{
 	margin-top: 30px;
 }
 
@@ -120,10 +120,15 @@ p{
 		margin-top: 0;
 	}
 
-	#endgameCount{
+	#finalTV{
+		margin-top: 
+	}
+
+	#choice1, #choice2, #choice3{
+		font-size: 18px;
+	}	
+
 }
-
-
 
 
 
