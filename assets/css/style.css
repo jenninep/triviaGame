@@ -13,13 +13,18 @@ body{
 }
 
 #display{
-	font-size: 30px;
-	font-weight: bold;
+	font-size: 21px;
+    font-weight: bold;
+    background-color: white;
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 14px;
+    box-shadow: inset 0 0 2px #000000;
 
 }
 .tv{
 	max-width: 115%;
-	margin-bottom: 100px;
 	font-family: 'Roboto', serif;
 }
 
@@ -36,12 +41,12 @@ header, #question{
 }
 
 .triviaBox{
-	margin-top: 50px;
+	margin-top: 20px;
 }
 
 p{
 	font-family: helvetica;
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: bold;
 	margin-bottom: 30px;
 }
@@ -55,7 +60,6 @@ p{
 }
 
 .startButton{
-	margin-bottom: 30px;
 	background-color: #83d6fc;
 	padding: 10px;
 	color: #af0581;
@@ -69,21 +73,58 @@ p{
 
 #choice1, #choice2, #choice3{
 	border: 2px solid;
-    border-radius: 25px;
-    margin: 9px;
-    padding: 5px;
-    padding-right: 30px;
-    padding-left: 30px;
+    border-radius: 28px;
+    margin: 5px;
+    padding: 4px;
+    padding-right: 20px;
+    padding-left: 20px;
     background-color: #83d6fc;
     color: #af0581;
-	font-weight: bold;
-	font-size: 20px;
-	font-family: 'Chicle', cursive;
-	text-decoration: underline;
-	letter-spacing: 1px;
-	text-shadow: 2px 2px white;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 'Chicle', cursive;
+    text-decoration: underline;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px white;
 }
 
 .choice1{
 	margin-top: 30px;
 }
+
+#endgameCount{
+	font-family: 'Chicle', cursive;
+    color: #af0581;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px white;
+    font-size: 36px;
+    margin-bottom: 20px;
+   
+
+}
+
+@media screen and (max-width: 768px){
+	.logo {
+	    max-width: 85%;
+	    margin-left: 18px;
+	    margin-top: 10px;
+	}
+
+	header, #question{
+		font-size: 26px;
+	}
+	.tv {
+    	max-width: 101%;
+	}
+	.intro{
+		margin-top: 0;
+	}
+
+	#endgameCount{
+}
+
+
+
+
+
+
